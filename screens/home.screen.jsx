@@ -37,6 +37,11 @@ const HomeScreen = () => {
 
     const [passengersOut, setPassengersOut] = useState('')
 
+    const resetCounts = () => {
+        setPassengersIn('')
+        setPassengersOut('')
+    }
+
     const handleSubmit = async () => {
         const payload = {
             station_id: stationId,
@@ -51,8 +56,7 @@ const HomeScreen = () => {
             const response = await submitData(payload)
 
             // clear counts
-            setPassengersIn('')
-            setPassengersOut('')
+            resetCounts()
 
             console.log(response)
         } catch (e) {
