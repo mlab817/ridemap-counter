@@ -25,13 +25,6 @@ import {AuthContext} from "../contexts/auth.context";
  *
  * see https://docs.expo.dev/versions/latest/sdk/facedetector/#settings
  */
-const faceDetectorSettings = {
-    mode: FaceDetector.FaceDetectorMode.accurate,
-    detectLandmarks: FaceDetector.FaceDetectorLandmarks.all,
-    runClassifications: FaceDetector.FaceDetectorClassifications.all,
-    minDetectionInterval: 500, // in milliseconds
-    tracking: true,
-}
 
 const HomeScreen = () => {
     const { deviceId, isAuthenticated, loading } = useContext(AuthContext)
@@ -56,6 +49,10 @@ const HomeScreen = () => {
 
         try {
             const response = await submitData(payload)
+
+            // clear counts
+            setPassengersIn('')
+            setPassengersOut('')
 
             console.log(response)
         } catch (e) {
@@ -134,14 +131,16 @@ const HomeScreen = () => {
                     fontSize: 24,
                     color: '#1434a3'
                 }}>SELECT STATION</Text>
+
                 {
-                    stations.map(station => (
+                    stations.length > 0
+                    ? stations.map(station => (
                         <TouchableOpacity style={{
                             marginTop: 10
                         }} key={station.id} onPress={() => setStationId(station.id)}>
                             <Text>{station.name}</Text>
                         </TouchableOpacity>
-                    ))
+                    )) : <Text>No stations found</Text>
                 }
             </View>
         )
