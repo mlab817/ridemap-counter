@@ -38,6 +38,7 @@ const HomeScreen = () => {
     const [passengersOut, setPassengersOut] = useState('')
 
     const resetCounts = () => {
+        console.log('resetting log')
         setPassengersIn('')
         setPassengersOut('')
     }
@@ -176,7 +177,7 @@ const HomeScreen = () => {
                         alignItems: 'center',
                         textAlign: 'center',
                         fontSize: 45
-                    }} placeholder="IN" keyboardType="numeric" onChangeText={setPassengersIn} />
+                    }} value={passengersIn} placeholder="IN" keyboardType="numeric" onChangeText={setPassengersIn} />
 
                     <TextInput style={{
                         borderWidth: 1,
@@ -188,7 +189,7 @@ const HomeScreen = () => {
                         textAlign: 'center',
                         marginLeft: 30,
                         fontSize: 45
-                    }} placeholder="OUT" keyboardType="numeric" onChangeText={setPassengersOut} />
+                    }} value={passengersOut} placeholder="OUT" keyboardType="numeric" onChangeText={setPassengersOut} />
                 </View>
 
                 <Button title="Submit" onPress={handleSubmit} />
