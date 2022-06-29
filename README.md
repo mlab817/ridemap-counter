@@ -9,15 +9,14 @@ different stations of EDSA Busway.
 ## Requirements
 
 1. [Free Expo account](https://expo.dev/signup)
-2. Laravel for backend development
-3. React Native and Expo for mobile app development
-4. Smartphones with camera
+2. React Native and Expo for mobile app development
+3. Smartphones with internet
 
-The Laravel backend for the Ridemap already supports this app. The
-endpoint for submission of face detection is `/api/faces`. The backend
-accepts an array of `faces` with the following attributes: `face_id`,
-`station_id`, and `scanned_at`. `device_id` is extracted from a token
-used to authenticate the device.
+The [Laravel backend for the Ridemap](https://github.com/mlab817/ridemap-php)
+already supports this app. The endpoint for submission of face detection is `/api/passenger-count`. 
+The backend accepts a single input with the following attributes: `station_id`,
+`passenger_in`, `passenger_out`, and `scanned_at`. `user_id` is extracted from 
+the token used to authenticate the device.
 
 ## Building the App
 
