@@ -11,12 +11,12 @@ import {
     Keyboard,
     SafeAreaView,
     StyleSheet,
-    Text, TextInput,
+    Text,
+    TextInput,
     TouchableOpacity,
     TouchableWithoutFeedback,
     View
 } from 'react-native';
-import * as FaceDetector from "expo-face-detector";
 import {fetchStations, submitData} from "../utils";
 import {AuthContext} from "../contexts/auth.context";
 
